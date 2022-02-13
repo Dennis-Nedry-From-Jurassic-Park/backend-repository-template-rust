@@ -1,0 +1,59 @@
+[package]
+
+name = "module1"
+version = "0.1.0"
+edition = "2018"
+
+include = ["src/**/*", "LICENSE", "README.md"]
+
+license = "?"
+authors = ["template Contributors"]
+homepage = "https://homepage.rs"
+keywords = ["shell", "bash"]
+categories = ["asynchronous"]
+repository = "https://github.com/template"
+description = ""
+
+documentation = "https://link"
+
+
+#build = "build.rs"
+
+
+
+
+[badges]
+
+
+[features]
+
+
+[dependencies]
+
+
+[dev-dependencies]
+
+
+[build-dependencies]
+
+
+
+
+
+
+[profile.release]
+codegen-units = 1
+lto = true
+
+[profile.dev]
+opt-level = 0
+overflow-checks = true
+debug = 1
+codegen-units = 2
+
+#[[bin]]
+
+[lib]
+
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
