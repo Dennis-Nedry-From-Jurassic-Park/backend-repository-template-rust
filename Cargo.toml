@@ -2,6 +2,7 @@
 members = [
     "module1",
     "module2",
+    "entrypoint",
 ]
 [profile.release]
 panic = "unwind"
