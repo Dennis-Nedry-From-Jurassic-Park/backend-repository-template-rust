@@ -1,0 +1,9 @@
+[package]
+name = "entrypoint"
+version = "0.1.0"
+authors = [""]
+edition = "2018"
+
+[dependencies]
+module1 = { path = "../module1" }
+module2 = { path = "../module2" }

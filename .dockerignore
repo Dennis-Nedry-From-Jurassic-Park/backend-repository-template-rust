@@ -1,0 +1,2 @@
+# Ignore secondary tools and cache for creating a docker image
+/target
