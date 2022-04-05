@@ -1,34 +1,17 @@
-FROM rust:1.59.0 as build
+FROM lukemathwalker/cargo-chef:0.1.35-rust-slim as chef
+WORKDIR app
 
-WORKDIR entrypoint
+FROM chef AS planner
+COPY . .
+RUN cargo chef prepare --recipe-path recipe.json
 
-COPY ./entrypoint ./entrypoint
-COPY ./module1 ./module1
-COPY ./module2 ./module2
-COPY ./Cargo.lock Cargo.lock
-COPY ./Cargo.toml Cargo.toml
+FROM chef AS builder
+COPY --from=planner /app/recipe.json recipe.json
+RUN cargo chef cook --release --recipe-path recipe.json
+COPY . .
+RUN cargo build --release --bin app
 
-# this build step will cache your dependencies
-RUN cargo build --release --bin entrypoint
-RUN rm ./entrypoint/*.*
-RUN rm ./module1/*.*
-RUN rm ./module2/*.*
-
-COPY ./entrypoint ./entrypoint
-COPY ./module1 ./module1
-COPY ./module2 ./module2
-COPY ./Cargo.lock Cargo.lock
-COPY ./Cargo.toml Cargo.toml
-
-RUN rm ./target/*.*
-RUN cargo build --release
-
-FROM rust:1.59.0-slim-buster as runtime
-
-COPY --from=build /entrypoint/target/release/entrypoint .
-
-#RUN cargo install --path .
-
-CMD ["./entrypoint"]
-# https://github.com/denzp/cargo-wharf
-# https://github.com/moby/buildkit#exploring-dockerfiles
+FROM debian:buster-slim AS runtime
+WORKDIR app
+COPY --from=builder /app/target/release/app /usr/local/bin
+ENTRYPOINT ["/usr/local/bin/app"]

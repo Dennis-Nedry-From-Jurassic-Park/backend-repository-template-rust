@@ -1,2 +1,9 @@
 # Ignore secondary tools and cache for creating a docker image
+target
 /target
+.idea
+ci
+docs
+.gitignore
+AUTHORS
+*.md

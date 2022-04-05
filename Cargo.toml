@@ -1,8 +1,16 @@
 [workspace]
 members = [
+    "app",
     "module1",
     "module2",
-    "entrypoint",
 ]
 [profile.release]
 panic = "unwind"
+opt-level = 3
+codegen-units = 16
+incremental = false
+lto = false
+rpath = false
+debug = false
+debug-assertions = false
+overflow-checks = false
