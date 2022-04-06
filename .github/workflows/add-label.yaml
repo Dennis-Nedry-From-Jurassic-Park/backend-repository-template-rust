@@ -26,7 +26,8 @@ jobs:
 
         env:
           GITHUB_TOKEN: "${{ secrets.TOKEN }}"
-          LOG: "debug"
+          LOG: "DEBUG"
           MERGE_ERROR_FAIL: true
+          MERGE_LABELS: ""
           MERGE_METHOD_LABEL_REQUIRED: false
           MERGE_FILTER_AUTHOR: "Dennis-Nedry-From-Jurassic-Park"
