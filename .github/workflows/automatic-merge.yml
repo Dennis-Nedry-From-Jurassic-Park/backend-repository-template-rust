@@ -13,8 +13,8 @@ jobs:
         with:
           token: ${{ secrets.TOKEN }}
           mergeMethod: merge
-          enableApproval: true
-          enableReadyForReview: true
+          enableApproval: false
+          enableReadyForReview: false
           labels: automerge
 
       - if: ${{ steps.automerge.outputs.merged == 'true' }}
