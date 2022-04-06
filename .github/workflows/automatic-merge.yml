@@ -11,12 +11,11 @@ jobs:
         id: automerge
         uses: Leadformance/auto-merge-action@v1
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.TOKEN }}
           mergeMethod: merge
           enableApproval: true
           enableReadyForReview: true
           labels: automerge
-          teams: '@github/team'
 
       - if: ${{ steps.automerge.outputs.merged == 'true' }}
         run: echo "Automerge has merged the pull request"
