@@ -8,6 +8,7 @@ on:
       - "*"
     paths:
       - Cargo.lock
+      - app/Cargo.toml
       - '**/Cargo.toml'
       - '**/Cargo.lock'
 jobs:
