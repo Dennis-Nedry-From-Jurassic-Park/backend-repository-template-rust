@@ -1,26 +1,29 @@
-name: Enable automerge on dependabot PRs
-
+name: automerge
 on:
-  # See note below about using pull_request_target
   pull_request:
-  pull_request_target:
+    types:
+      - labeled
+      - unlabeled
+      - synchronize
+      - opened
+      - edited
+      - ready_for_review
+      - reopened
+      - unlocked
 
+  check_suite:
+    types:
+      - completed
+  status: {}
 jobs:
   automerge:
-    name: Enable automerge on dependabot PRs
     runs-on: ubuntu-latest
+
     steps:
-      - name: Enable automerge on dependabot PRs
-        uses: daneden/enable-automerge-action@v1
-        with:
-          # A personal access token that you have generated and saved in the
-          # repo or org’s encrypted secrets
-          github-token: ${{ secrets.TOKEN }}
+      - id: automerge
+        name: automerge
+        uses: "pascalgn/automerge-action@v0.15.2"
 
-          # The name of the PR author to enable automerge for
-          # Defaults to dependabot[bot]
-          allowed-author: "Dennis-Nedry-From-Jurassic-Park"
-
-          # Allowed values: MERGE | SQUASH | REBASE
-          # Defaults to MERGE
-          merge-method: MERGE
+        env:
+          GITHUB_TOKEN: "${{ secrets.TOKEN }}"
+          MERGE_FILTER_AUTHOR: "Dennis-Nedry-From-Jurassic-Park"
