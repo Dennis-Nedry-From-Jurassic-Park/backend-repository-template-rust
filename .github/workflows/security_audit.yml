@@ -2,13 +2,15 @@ name: Security audit
 on:
   pull_request:
     paths:
-      - Cargo.lock
+      - 'Cargo.lock'
   push:
     branches:
       - "*"
     paths:
-      - Cargo.lock
-      - app/Cargo.toml
+      - 'Cargo.lock'
+      - './app/Cargo.toml'
+      - './module1/Cargo.toml'
+      - './module2/Cargo.toml'
       - '**/Cargo.toml'
       - '**/Cargo.lock'
 jobs:
