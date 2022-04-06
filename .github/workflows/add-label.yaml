@@ -1,18 +1,25 @@
-name: Add Label
+name: Enable automerge on dependabot PRs
 
 on:
-  pull_request:
-    types: [opened]
+  # See note below about using pull_request_target
+  pull_request_target:
 
 jobs:
-  add_labels:
+  automerge:
+    name: Enable automerge on dependabot PRs
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions-ecosystem/action-add-labels@v1
-        if: ${{ startsWith(github.event.comment.body, '/add-labels') }}
+      - name: Enable automerge on dependabot PRs
+        uses: daneden/enable-automerge-action@v1
         with:
-          labels: |
-            documentation
-            changelog
-            automerge
+          # A personal access token that you have generated and saved in the
+          # repo or org’s encrypted secrets
+          github-token: ${{ secrets.TOKEN }}
+
+          # The name of the PR author to enable automerge for
+          # Defaults to dependabot[bot]
+          allowed-author: "Dennis-Nedry-From-Jurassic-Park"
+
+          # Allowed values: MERGE | SQUASH | REBASE
+          # Defaults to MERGE
+          merge-method: MERGE
