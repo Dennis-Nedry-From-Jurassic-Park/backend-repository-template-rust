@@ -1,0 +1,27 @@
+name: Auto-merge
+
+on: pull_request
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Auto-merge
+        id: automerge
+        uses: Leadformance/auto-merge-action@v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          mergeMethod: merge
+          enableApproval: true
+          enableReadyForReview: true
+          labels: automerge
+          teams: '@github/team'
+
+      - if: ${{ steps.automerge.outputs.merged == 'true' }}
+        run: echo "Automerge has merged the pull request"
+
+      - if: ${{ steps.automerge.outputs.merged == 'false' }}
+        run: |
+          echo "Auto-merge could not merged the pull request"
+          echo "Reason: ${{ steps.automerge.outputs.reason }}"
