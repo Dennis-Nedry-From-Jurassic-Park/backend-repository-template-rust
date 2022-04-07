@@ -4,8 +4,8 @@ on:
     paths:
       - 'Cargo.lock'
   push:
-#    branches:
-#      - *
+    branches:
+      - "*"
 #      - security-audit-rust
     paths:
       - 'Cargo.lock'
