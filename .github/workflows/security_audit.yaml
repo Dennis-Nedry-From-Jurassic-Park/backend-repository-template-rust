@@ -4,9 +4,9 @@ on:
     paths:
       - 'Cargo.lock'
   push:
-    branches:
-      - *
-      - security-audit-rust
+#    branches:
+#      - *
+#      - security-audit-rust
     paths:
       - 'Cargo.lock'
       - 'app/Cargo.toml'
