@@ -5,8 +5,8 @@ on:
       - 'Cargo.lock'
   push:
     branches:
-      - "*"
-      - "security-audit-rust"
+      - *
+      - security-audit-rust
     paths:
       - 'Cargo.lock'
       - 'app/Cargo.toml'
