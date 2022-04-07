@@ -27,6 +27,7 @@ documentation = "https://link"
 
 
 [dependencies]
+tokio = { version = "1.17.0", features = ["full"] }
 
 
 [dev-dependencies]
