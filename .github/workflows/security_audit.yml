@@ -8,9 +8,9 @@ on:
       - "*"
     paths:
       - 'Cargo.lock'
-      - './app/Cargo.toml'
-      - './module1/Cargo.toml'
-      - './module2/Cargo.toml'
+      - 'app/Cargo.toml'
+      - 'module1/Cargo.toml'
+      - 'module2/Cargo.toml'
       - '**/Cargo.toml'
       - '**/Cargo.lock'
 jobs:
