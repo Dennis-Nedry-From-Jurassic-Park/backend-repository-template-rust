@@ -51,7 +51,7 @@ jobs:
       - uses: actions-rs/clippy-check@v1.0.7
         with:
           token: ${{ secrets.TOKEN }}
-          args: --all-features
+          args: --all-targets --all-features -- -D warnings
           name: Clippy Output
 #  build_and_test:
 #    name: build_and_test
