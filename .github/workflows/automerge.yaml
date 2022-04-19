@@ -2,7 +2,7 @@
 name: automerge
 on:
   workflow_run:
-    workflows: [Security audit, Cargo Check & Build & Test]
+    workflows: ["Security audit", "Cargo Check & Build & Test"]
     types:
       - completed
 #on:
