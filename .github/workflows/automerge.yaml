@@ -1,5 +1,5 @@
 # https://github.com/pascalgn/automerge-action
-name: automerge
+name: "Automerge"
 on:
   workflow_run:
     workflows: ["Security audit", "Cargo Check & Build & Test"]
