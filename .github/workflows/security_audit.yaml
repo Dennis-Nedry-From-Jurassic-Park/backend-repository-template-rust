@@ -1,6 +1,5 @@
 name: "Security audit"
 on:
-  workflow_dispatch:
   push:
     paths:
       - "**/Cargo.*"
