@@ -1,6 +1,5 @@
 name: Security audit
 on:
-  workflow_run:
   workflow_dispatch:
   push:
     paths:
