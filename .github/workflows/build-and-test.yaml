@@ -1,4 +1,4 @@
-name: Cargo Check & Build & Test
+name: "Cargo Check & Build & Test"
 on:
   workflow_run:
     workflows: ["Security audit"]
