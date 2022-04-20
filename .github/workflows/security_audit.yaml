@@ -13,5 +13,5 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions-rs/audit-check@v1.2.0
         with:
-          token: ${{ secrets.GITHUB_TOKEN_1 }}
+          token: ${{ secrets.GITHUB_TOKEN }}
 
