@@ -3,7 +3,8 @@ name: Cargo Build & Test
 on:
   workflow_run:
     workflows: ["Security audit"]
-    branches: ["*"]
+    branches:
+      - "*"
     types: [completed]
 
 env:
