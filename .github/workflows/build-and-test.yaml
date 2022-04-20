@@ -2,8 +2,7 @@ name: Cargo Check & Build & Test
 on:
   workflow_run:
     workflows: ["Security audit"]
-#    types:
-#      - completed
+    types: [completed]
 #on:
 #  push:
 #    branches:
