@@ -1,16 +1,11 @@
 # https://github.com/pascalgn/automerge-action
 name: automerge
 on:
-  pull_request:
+  workflow_run:
+    workflows: ["Security audit", "Cargo Check & Build & Test"]
+    branches: ["*"]
     types:
-      - labeled
-      - unlabeled
-      - synchronize
-      - opened
-      - edited
-      - ready_for_review
-      - reopened
-      - unlocked
+      - completed
 
   check_suite:
     types:
