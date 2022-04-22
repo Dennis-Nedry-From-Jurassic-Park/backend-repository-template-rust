@@ -7,7 +7,4 @@ fn main() {
     render();
     log();
      sleep(Duration::from_millis(5000));
-
-1111
-
 }
