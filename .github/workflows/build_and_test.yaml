@@ -15,6 +15,8 @@ jobs:
     name: cache
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
+      - run: rustup update ${{ matrix.toolchain }} && rustup default ${{ matrix.toolchain }}
       - uses: Swatinem/rust-cache@v1
         with:
           cache-on-failure: false
@@ -23,6 +25,10 @@ jobs:
   check:
     name: check
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        toolchain:
+          - stable
     needs:
       - cache
     steps:
