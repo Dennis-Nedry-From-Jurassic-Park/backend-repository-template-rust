@@ -1,8 +1,13 @@
 # https://github.com/pascalgn/automerge-action
 name: "Automerge"
 on:
-  repository_dispatch:
-    types: [ checks-complete ]
+  workflow_run:
+    workflows: ["Check_Build_Test"]
+    types:
+      - completed
+#on:
+#  repository_dispatch:
+#    types: [ checks-complete ]
 
 #  pull_request:
 #    types:
