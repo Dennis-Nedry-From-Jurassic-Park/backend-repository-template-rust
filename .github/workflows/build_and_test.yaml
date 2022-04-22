@@ -91,5 +91,5 @@ jobs:
         with:
           token: ${{ secrets.ACCESS_TOKEN }}
           event-type: checks-complete
-          client-payload: ${{ toJson(github) }}
+          client-payload: '{"github": ${{ toJson(github) }}}'
         if: github.event_name == 'pull_request'
