@@ -87,7 +87,7 @@ jobs:
       - build_and_test
     steps:
       - name: Trigger automerge
-        uses: peter-evans/repository-dispatch@v1
+        uses: peter-evans/repository-dispatch@v2
         with:
           token: ${{ secrets.ACCESS_TOKEN }}
           event-type: checks-complete
