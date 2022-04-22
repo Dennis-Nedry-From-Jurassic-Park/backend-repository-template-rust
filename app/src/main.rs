@@ -6,5 +6,8 @@ use std::{thread::sleep, time::Duration};
 fn main() {
     render();
     log();
-    sleep(Duration::from_millis(5000));
+     sleep(Duration::from_millis(5000));
+
+1111
+
 }
