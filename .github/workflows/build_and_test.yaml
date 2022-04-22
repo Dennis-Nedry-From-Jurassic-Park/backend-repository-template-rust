@@ -93,4 +93,3 @@ jobs:
           event-type: checks-complete
           client-payload: ${{ toJson(github) }}
         if: github.event_name == 'pull_request'
-        run: echo This event is a pull request
