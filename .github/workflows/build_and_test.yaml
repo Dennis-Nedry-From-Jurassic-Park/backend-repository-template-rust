@@ -1,15 +1,13 @@
-name: "Cargo Check & Build & Test"
+name: "Check_Build_Test"
 
 on:
-  push:
-    branches:
-      - "*"
+#  push:
+#    branches:
+#      - "*"
   pull_request:
   workflow_run:
     workflows:
-      - "Security audit"
-    branches:
-      - "*"
+      - "Security_audit"
     types: [completed]
 
 env:
