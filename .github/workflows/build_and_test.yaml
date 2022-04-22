@@ -1,7 +1,6 @@
 name: "Check_Build_Test"
 
 on:
-  push:
   pull_request:
   workflow_run:
     workflows:
