@@ -11,6 +11,7 @@ env:
   CARGO_TERM_COLOR: always
 
 jobs:
+
   cache:
     name: cache
     runs-on: ubuntu-latest
@@ -18,6 +19,7 @@ jobs:
       - uses: Swatinem/rust-cache@v1
         with:
           cache-on-failure: false
+
   check:
     name: check
     runs-on: ubuntu-latest
@@ -33,6 +35,7 @@ jobs:
       - uses: actions-rs/cargo@v1
         with:
           command: check
+
   code_coverage_llvm:
     name: code_coverage_llvm
     runs-on: ubuntu-latest
@@ -52,6 +55,7 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }} # not required for public repos
           files: lcov.info
           fail_ci_if_error: false
+
   code_coverage:
     name: code_coverage
     runs-on: ubuntu-latest
