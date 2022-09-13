@@ -7,3 +7,5 @@ edition = "2018"
 [dependencies]
 module1 = { path = "../module1" }
 module2 = { path = "../module2" }
+
+lever = "0.1.3"
